@@ -9,6 +9,7 @@ MAINTAINER Peter Hedenskog <peter@soulgalore.com>
 RUN \
 apt-get update && \
 apt-get install -y curl && \
+apt-get install -y unzip && \
 curl --silent --location https://deb.nodesource.com/setup_4.x | bash - && \
 apt-get install -y \
 default-jre-headless \
@@ -22,7 +23,7 @@ rm chromedriver_linux64.zip && \
 chmod +x chromedriver && \
 mv -f chromedriver /usr/bin/chromedriver && \
 npm set progress=false && \
-npm install -g sitespeed.io && npm cache clean && \
+npm install -g https://github.com/JeroenVdb/sitespeed.io/archive/v4.4.0-beta.tar.gz && npm cache clean && \
 apt-get purge -y curl git build-essential && \
 apt-get clean autoclean && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
